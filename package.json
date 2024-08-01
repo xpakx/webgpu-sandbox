@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch1": "npx tsc -w --project 001_triangle"
+    "watch1": "npx tsc -w --project 001_triangle",
+    "watch2": "npx tsc -w --project 002_gradient"
   },
   "repository": {
     "type": "git",
