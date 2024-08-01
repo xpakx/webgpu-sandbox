@@ -1,10 +1,12 @@
-struct Fragment {
-	@builtin(position) Position: vec4f,
-	@location(0) Color: vec4f,
+struct Uniforms {
+  resolution: vec2f,
 };
 
+@group(0) @binding(0)
+var<uniform> uniforms: Uniforms;
+
 @vertex
-fn vs_main(@builtin(vertex_index) v_id: u32) -> Fragment {
+fn vs_main(@builtin(vertex_index) v_id: u32) -> @builtin(position) vec4f {
 	let positions = array<vec2f, 6> (
 			vec2f(-1.0, -1.0),
 			vec2f(1.0, -1.0),
@@ -14,22 +16,11 @@ fn vs_main(@builtin(vertex_index) v_id: u32) -> Fragment {
 			vec2f(1.0, -1.0),
 			vec2f(1.0, 1.0)
 	);
-	let colors = array<vec3f, 6> (
-			vec3f(1.0, 0.0, 0.0),
-			vec3f(1.0, 0.0, 0.0),
-			vec3f(1.0, 0.0, 0.0),
-
-			vec3f(0.0, 1.0, 0.0),
-			vec3f(0.0, 1.0, 0.0),
-			vec3f(0.0, 1.0, 0.0),
-	);
-	var output: Fragment;
-	output.Position = vec4f(positions[v_id], 0.0, 1.0);
-	output.Color = vec4f(colors[v_id], 1.0);
-	return output;
+	return vec4f(positions[v_id], 0.0, 1.0);
 }
 
 @fragment
-fn fs_main(@location(0) Color: vec4f) -> @location(0) vec4f {
-	return Color;
+fn fs_main(@builtin(position) FragCoord : vec4f) -> @location(0) vec4f {
+	var uv = FragCoord.xy  / uniforms.resolution.xy;
+	return vec4f(uv, 0.5019, 1.0);
 }
