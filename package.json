@@ -1,0 +1,24 @@
+{
+  "name": "webgpu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch1": "npx tsc -w --project 001_triangle"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xpakx/webgpu-sandbox.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xpakx/webgpu-sandbox/issues"
+  },
+  "homepage": "https://github.com/xpakx/webgpu-sandbox#readme",
+  "devDependencies": {
+    "@webgpu/types": "^0.1.44",
+    "typescript": "^5.5.4"
+  }
+}
