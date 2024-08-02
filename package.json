@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch1": "npx tsc -w --project 001_triangle",
     "watch2": "npx tsc -w --project 002_gradient",
-    "watch3": "npx tsc -w --project 003_animation"
+    "watch3": "npx tsc -w --project 003_animation",
+    "watch4": "npx tsc -w --project 004_mouse_input"
   },
   "repository": {
     "type": "git",
